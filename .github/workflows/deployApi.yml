@@ -1,21 +1,28 @@
-# manual code for CI
+name: dotnet CICd
 
-name: deploy web api project
+on: [push]
 
-on:
-	
 jobs:
-	build:
-		runs-on: windows-latest
-		steps:
-			-uses: actions/checkout@v4
-			-name: Setup .net Core
-			 uses: actions/setup-dotnet@v4
-			 with: 
-				dotnet-version: 6.0.x
+  build:
 
-			-name: install dependencies
-			run: dotnet restore ./WebApi_CI/WebApi_CI.csproj
+    runs-on: windows-latest
+   
 
-			-name: Build
-			run: dotnet build ./WebApi_CI/WebApi_CI.csproj
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET 6.x
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '6.x'
+      # You can test your matrix by printing the current dotnet version
+      - name: Display dotnet version
+        run: dotnet --version
+
+    #steps:
+    #  - uses: actions/checkout@v4
+    #  - name: Setup dotnet
+    #    uses: actions/setup-dotnet@v3
+    #    with:
+    #      dotnet-version: '6.0.x'
+    #  - name: Install dependencies
+    #    run: dotnet add package Newtonsoft.Json --version 12.0.1
