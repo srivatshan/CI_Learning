@@ -20,3 +20,5 @@ jobs:
     #install dependencies
       - name: Install dependencies
         run: dotnet restore ./WebApi_CI/WebApi_CI/WebApi_CI.csproj
+      - name: Build
+        run: dotnet build
