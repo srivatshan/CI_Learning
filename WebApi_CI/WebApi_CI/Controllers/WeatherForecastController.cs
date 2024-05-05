@@ -13,21 +13,22 @@ namespace WebApi_CI.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController()
         {
-            _logger = logger;
+           
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        public IActionResult Get()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            List<Test> data = new List<Test>() { new Test { Id = 1, Name = "Sri" } };
+            return Ok(data);
         }
+    }
+
+    public class Test
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 }
