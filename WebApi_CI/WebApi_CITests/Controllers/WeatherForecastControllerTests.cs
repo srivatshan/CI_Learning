@@ -35,7 +35,7 @@ namespace WebApi_CI.Controllers.Tests
             // var okResult = Assert.IsType<OkObjectResult>(result);
             Assert.IsNotNull(result);
            // Assert.IsAssignableFrom<IStatusCodeActionResult>(result);
-            Assert.AreEqual(200, (result as IStatusCodeActionResult).StatusCode);
+            Assert.AreEqual(404, (result as IStatusCodeActionResult).StatusCode);
 
         }
     }
