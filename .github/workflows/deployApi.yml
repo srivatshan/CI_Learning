@@ -22,3 +22,5 @@ jobs:
         run: dotnet restore ./WebApi_CI/WebApi_CI/WebApi_CI.csproj
       - name: Build
         run: dotnet build ./WebApi_CI/WebApi_CI/WebApi_CI.csproj
+      - name: unit testing
+        run: dotnet test ./WebApi_CI/WebApi_CITests/WebApi_CITests.csproj
