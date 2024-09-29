@@ -5,8 +5,9 @@ on: workflow_dispatch
 jobs:
   build:
 
-    runs-on: windows-latest
-   
+    runs-on:
+      -self-hosted
+      -label-1   
 
     steps:
       - uses: actions/checkout@v4
